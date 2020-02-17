@@ -20,7 +20,7 @@ fi
 
 for i in $( cat $path);do
 	for j in $( cat $domain);do
-		curl  --write-out "%{http_code} %{url_effective}\n" --connect-timeout 5 --max-time 5 --silent --insecure $j/$i --output /dev/null https://$j/$i --output /dev/null
+		curl  --write-out "%{http_code} %{url_effective}\n" --connect-timeout 5 --max-time 5 --silent --insecure --location $j/$i --output /dev/null https://$j/$i --output /dev/null
 	done
 done
 
