@@ -1,5 +1,7 @@
 # domainpathresolver
 This script will take two files as input from the user:
+
+
 (1).File which contains the list of all the domains.
 (2).File which conatins the list of all the paths.
 
