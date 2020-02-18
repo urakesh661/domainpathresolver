@@ -18,9 +18,15 @@ if [[ (-z $path) || (! -f $path) ]];then
 	exit
 fi
 
+echo -n "Please provide connect-timeout[2]: "
+read connecttimeout
+
+echo -n "Please provide max-time[2]: "
+read maxtime
+
 for i in $( cat $path);do
 	for j in $( cat $domain);do
-		curl  --write-out "%{http_code} %{url_effective}\n" --connect-timeout 5 --max-time 5 --silent --insecure --location $j/$i --output /dev/null https://$j/$i --output /dev/null
+		curl  --write-out "%{http_code} %{url_effective}\n" --connect-timeout ${connecttimeout:-2} --max-time ${maxtime:-2} --silent --insecure --location $j/$i --output /dev/null https://$j/$i --output /dev/null
 	done
 done
 
