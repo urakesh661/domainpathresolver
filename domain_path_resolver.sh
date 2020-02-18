@@ -1,7 +1,5 @@
 #!/bin/bash
 
-start_time=$(date +%s)
-
 echo -n "Please provide domain list: "
 read domain
 
@@ -23,6 +21,8 @@ read connecttimeout
 
 echo -n "Please provide max-time[2]: "
 read maxtime
+
+start_time=$(date +%s)
 
 for i in $( cat $path);do
 	for j in $( cat $domain);do
